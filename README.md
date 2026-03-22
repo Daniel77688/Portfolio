@@ -57,3 +57,4 @@ Todo el contenido vive en **`data.js`**. No necesito tocar el HTML.
 
 **GitHub Pages:**
 URL disponible en:
+https://daniel77688.github.io/Portfolio/cv.html
