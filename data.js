@@ -9,7 +9,7 @@ const PORTFOLIO_DATA = {
         title: "Desarrollador Backend & Especialista en Datos",
         summary: "Ingeniero Informático especializado en optimización de bases de datos, desarrollo con Java y soluciones de inteligencia artificial aplicada.",
         profilePic: "Diseño sin título.png",
-        cvLink: "CV_Daniel_Claver_ATSsinfoto.pdf"
+        cvLink: "CV_PDF.pdf"
     },
     projects: [
         {
