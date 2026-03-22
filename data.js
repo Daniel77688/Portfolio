@@ -26,7 +26,8 @@ const PORTFOLIO_DATA = {
                     <li>Validación del límite clásico de 140 caracteres.</li>
                     <li>Acciones semánticas embebidas directamente en la gramática.</li>
                 </ul>
-            `
+            `,
+            githubUrl: "https://github.com/Daniel77688/Twitter-Text-Formatter"
         },
         {
             id: "robot",
@@ -42,7 +43,8 @@ const PORTFOLIO_DATA = {
                     <li>Iluminación avanzada con Normal Maps y Specular Maps.</li>
                     <li>Sistema de cámaras: Libre, Cinemática y Vista de Robot.</li>
                 </ul>
-            `
+            `,
+            githubUrl: "https://github.com/Daniel77688/Planta-Industrial-Robotizada---Simulaci-n-3D-con-OpenGL"
         },
         {
             id: "token",
@@ -58,7 +60,8 @@ const PORTFOLIO_DATA = {
                     <li>Control de acceso mediante listas negras gestionadas por administradores.</li>
                     <li>Roles diferenciados: Owner y Moderadores.</li>
                 </ul>
-            `
+            `,
+            githubUrl: "https://github.com/Daniel77688/CGM-Token-Reward-System"
         },
         {
             id: "pascal",
@@ -74,7 +77,8 @@ const PORTFOLIO_DATA = {
                     <li>Generación automática de format strings para printf.</li>
                     <li>Gestión de errores mediante un Listener recursivo personalizado.</li>
                 </ul>
-            `
+            `,
+            githubUrl: "https://github.com/Daniel77688/Pascal-to-C-Translator"
         },
         {
             id: "vaccine",
@@ -90,7 +94,8 @@ const PORTFOLIO_DATA = {
                     <li>Gestión de almacén global y redistribución eficiente de dosis.</li>
                     <li>Reportes estadísticos detallados al finalizar la simulación.</li>
                 </ul>
-            `
+            `,
+            githubUrl: "https://github.com/Daniel77688/Vaccination-Simulator---Operating-Systems"
         },
         {
             id: "shell",
@@ -106,7 +111,8 @@ const PORTFOLIO_DATA = {
                     <li>Encadenamiento de comandos mediante pipes (|).</li>
                     <li>Soporte para comandos internos y manejo de señales.</li>
                 </ul>
-            `
+            `,
+            githubUrl: "https://github.com/Daniel77688/miniShell"
         },
         {
             id: "padel",
@@ -121,8 +127,10 @@ const PORTFOLIO_DATA = {
                     <li>Arquitectura en capas (Controlador -> Servicio -> Repositorio).</li>
                     <li>Base de datos H2 persistente en modo archivo.</li>
                     <li>Frontend dinámico consumiendo API REST mediante Fetch.</li>
+                    <li>Seguridad básica integrada y validación de datos.</li>
                 </ul>
-            `
+            `,
+            githubUrl: "https://github.com/Daniel77688/TOUR-PADEL"
         }
     ],
     skills: [

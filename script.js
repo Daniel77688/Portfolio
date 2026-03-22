@@ -78,6 +78,11 @@ document.addEventListener('DOMContentLoaded', () => {
             <h2>${project.title}</h2>
             <div class="modal-tags">${project.tags.map(t => `<span class="tag">${t}</span>`).join('')}</div>
             ${project.fullDesc}
+            <div class="modal-footer">
+                <a href="${project.githubUrl}" target="_blank" class="btn btn-primary">
+                    <i data-lucide="github"></i> Ver en GitHub
+                </a>
+            </div>
         `;
         modal.classList.add('active');
         document.body.style.overflow = 'hidden';
@@ -109,7 +114,12 @@ document.addEventListener('DOMContentLoaded', () => {
                         </div>
                         <p>${p.shortDesc}</p>
                     </div>
-                    <button class="btn btn-secondary open-details" data-id="${p.id}">Saber más</button>
+                    <div class="project-footer">
+                        <button class="btn btn-secondary open-details" data-id="${p.id}">Saber más</button>
+                        <a href="${p.githubUrl}" target="_blank" class="github-link" title="Ver en GitHub">
+                            <i data-lucide="github"></i>
+                        </a>
+                    </div>
                 </div>
             `).join('');
         }
