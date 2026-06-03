@@ -131,6 +131,42 @@ const PORTFOLIO_DATA = {
                 </ul>
             `,
             githubUrl: "https://github.com/Daniel77688/TOUR-PADEL"
+        },
+        {
+            id: "road-panel-detection",
+            title: "Detección de Paneles de Carretera",
+            tags: ["Python", "OpenCV", "Visión Artificial"],
+            shortDesc: "Sistema de detección automática de paneles informativos en imágenes de carretera usando MSER y Transformada de Hough.",
+            fullDesc: `
+                <p>Práctica de Visión Artificial para detectar paneles informativos en imágenes de carreteras reales. Se implementaron dos estrategias de detección complementarias evaluadas con métricas estándar de detección de objetos.</p>
+                <h4>Características principales:</h4>
+                <ul>
+                    <li>Detector MSER (<em>Maximally Stable Extremal Regions</em>) para segmentación de regiones candidatas a panel.</li>
+                    <li>Detector alternativo basado en Transformada de Hough para detección de formas rectangulares.</li>
+                    <li>Pipeline de preprocesamiento: conversión a espacio HSV, filtrado morfológico y supresión de no máximos.</li>
+                    <li>Evaluación automática con métricas de Precisión, Recall e IoU sobre conjunto de test etiquetado.</li>
+                    <li>Arquitectura modular con interfaz común para facilitar el intercambio de detectores.</li>
+                </ul>
+            `,
+            githubUrl: "https://github.com/Daniel77688/VAPractica"
+        },
+        {
+            id: "road-panel-ocr",
+            title: "OCR de Paneles de Carretera",
+            tags: ["Python", "OpenCV", "Machine Learning", "Visión Artificial"],
+            shortDesc: "Sistema OCR completo que lee el texto de paneles de carretera mediante clasificadores LDA+Bayes, PCA+KNN y HOG+Bayes.",
+            fullDesc: `
+                <p>Práctica de Visión Artificial (4º GII) que implementa un pipeline completo de OCR para leer los caracteres de paneles informativos de autopista recortados. Combina técnicas de visión por computador con clasificadores clásicos de machine learning.</p>
+                <h4>Características principales:</h4>
+                <ul>
+                    <li>Segmentación de caracteres mediante umbralización adaptativa gaussiana y análisis de contornos con filtrado geométrico.</li>
+                    <li>Agrupación de caracteres en líneas de texto usando regresión robusta RANSAC.</li>
+                    <li>Tres clasificadores implementados y comparados: LDA + Normal Bayes (OpenCV), PCA + KNN y HOG + Normal Bayes.</li>
+                    <li>Reducción de dimensionalidad: LDA supervisado (max separabilidad entre clases) y PCA no supervisado (max varianza).</li>
+                    <li>Supresión de rectángulos solapados para eliminar artefactos en letras huecas (O, D, B, A...).</li>
+                </ul>
+            `,
+            githubUrl: "https://github.com/Daniel77688/Practica2VA"
         }
     ],
     skills: [
@@ -157,6 +193,15 @@ const PORTFOLIO_DATA = {
                 { name: "Docker & Azure", icon: "container" },
                 { name: "Git & SCRUM", icon: "git-branch" },
                 { name: "Architectura en Capas", icon: "layers" }
+            ]
+        },
+        {
+            category: "Visión Artificial & IA",
+            items: [
+                { name: "OpenCV", icon: "eye" },
+                { name: "scikit-learn", icon: "cpu" },
+                { name: "LDA / PCA / HOG", icon: "bar-chart-2" },
+                { name: "MSER & Hough Transform", icon: "scan" }
             ]
         }
     ],
