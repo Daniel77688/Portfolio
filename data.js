@@ -209,7 +209,7 @@ const PORTFOLIO_DATA = {
         {
             role: "Desarrollador Backend en Prácticas",
             company: "Mundomar Cruceros",
-            date: "Sep 2025 – Mar 2026",
+            date: "Sep 2025 – Abril 2026",
             desc: "Optimización de consultas SQL en sistemas de alta carga (reducción de 45s a < 3s). Automatización de procesos con Java/Spring Boot."
         }
     ],
@@ -218,7 +218,7 @@ const PORTFOLIO_DATA = {
             degree: "Grado en Ingeniería Informática",
             school: "Universidad Rey Juan Carlos",
             date: "2022 – 2026",
-            desc: "Enfoque en sistemas distribuidos, IA y desarrollo de compiladores. 4º curso en proceso."
+            desc: "Enfoque en desarrollo de software e Inteligencia Artificial. 4º curso en proceso (A falta de TFG y una asignatura ambas en proceso actualmente)."
         }
     ]
 };
