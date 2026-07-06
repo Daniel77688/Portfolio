@@ -1,92 +1,37 @@
 /**
  * Portfolio Interactivo - Daniel Claver Feito
- * Lógica de UI e Renderizado Dinámico
+ * Lógica de UI e Renderizado Dinámico (Basado en SVGs Inline para mayor robustez)
  */
 
 document.addEventListener('DOMContentLoaded', () => {
 
     // ============================================================
-    // TEMA (Dark / Light)
-    // ============================================================
-    const themeToggle = document.getElementById('theme-toggle');
-    const htmlElement = document.documentElement;
-
-    function getStoredTheme() {
-        try { return localStorage.getItem('theme'); } catch (e) { return null; }
-    }
-
-    function setStoredTheme(theme) {
-        try { localStorage.setItem('theme', theme); } catch (e) { }
-    }
-
-    function updateThemeIcon(theme) {
-        if (!themeToggle) return;
-        const icon = themeToggle.querySelector('i');
-        if (!icon) return;
-        icon.setAttribute('data-lucide', theme === 'dark' ? 'moon' : 'sun');
-        if (window.lucide) lucide.createIcons();
-    }
-
-    const savedTheme = getStoredTheme() || 'light';
-    htmlElement.setAttribute('data-theme', savedTheme);
-    updateThemeIcon(savedTheme);
-
-    if (themeToggle) {
-        themeToggle.addEventListener('click', () => {
-            const currentTheme = htmlElement.getAttribute('data-theme');
-            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-            htmlElement.setAttribute('data-theme', newTheme);
-            setStoredTheme(newTheme);
-            updateThemeIcon(newTheme);
-        });
-    }
-
-    // ============================================================
-    // SCROLL REVEAL
-    // ============================================================
-    const revealObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('active');
-                revealObserver.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.1 });
-
-    function observeElements() {
-        document.querySelectorAll('.reveal:not(.active)').forEach(el => {
-            const rect = el.getBoundingClientRect();
-            if (rect.top < window.innerHeight) {
-                el.classList.add('active'); // ya visible → revelar sin esperar
-            } else {
-                revealObserver.observe(el);
-            }
-        });
-    }
-
-    // ============================================================
-    // MÓDAL DE PROYECTOS
+    // MÓDAL DE PROYECTOS (Destacados & Otros)
     // ============================================================
     const modal   = document.getElementById('project-modal');
     const modalBody = document.getElementById('modal-body');
     const closeBtn  = document.querySelector('.close-modal');
 
     function openModal(projectId) {
-        const project = PORTFOLIO_DATA.projects.find(p => p.id === projectId);
+        const project = PORTFOLIO_DATA.featuredProjects.find(p => p.id === projectId) ||
+                        PORTFOLIO_DATA.otherProjects.find(p => p.id === projectId);
         if (!project || !modal) return;
+        
         modalBody.innerHTML = `
             <h2>${project.title}</h2>
-            <div class="modal-tags">${project.tags.map(t => `<span class="tag">${t}</span>`).join('')}</div>
+            <div class="modal-tags">
+                ${project.tags.map(t => `<span class="tag">${t}</span>`).join('')}
+            </div>
             ${project.fullDesc}
             <div class="modal-footer">
-                <a href="${project.githubUrl}" target="_blank" class="btn btn-primary">
-                    <i data-lucide="github"></i> Ver en GitHub
+                <a href="${project.githubUrl}" target="_blank" class="btn btn-secondary">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-github"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+                    Código en GitHub
                 </a>
             </div>
         `;
         modal.classList.add('active');
         document.body.style.overflow = 'hidden';
-        if (window.lucide) lucide.createIcons();
     }
 
     function closeModal() {
@@ -102,74 +47,143 @@ document.addEventListener('DOMContentLoaded', () => {
     // RENDERIZADO DINÁMICO
     // ============================================================
     function renderPortfolio() {
-        // Proyectos
-        const projectsGrid = document.getElementById('projects-grid');
-        if (projectsGrid) {
-            projectsGrid.innerHTML = PORTFOLIO_DATA.projects.map(p => `
-                <div class="project-card reveal">
-                    <div>
-                        <h3>${p.title}</h3>
-                        <div class="project-tags">
-                            ${p.tags.map(t => `<span class="tag">${t}</span>`).join('')}
-                        </div>
-                        <p>${p.shortDesc}</p>
-                    </div>
-                    <div class="project-footer">
-                        <button class="btn btn-secondary open-details" data-id="${p.id}">Saber más</button>
-                        <a href="${p.githubUrl}" target="_blank" class="github-link" title="Ver en GitHub">
-                            <i data-lucide="github"></i>
+        const profile = PORTFOLIO_DATA.profile;
+
+        // Renderizar Sobre Mí (en la primera sección Hero)
+        const aboutContent = document.getElementById('about-content');
+        if (aboutContent) {
+            aboutContent.innerHTML = `
+                <p class="about-bio">${profile.about}</p>
+                <div class="learning-box">
+                    <h5>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-book-open"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+                        Actualmente aprendiendo:
+                    </h5>
+                    <p>${profile.currentlyLearning}</p>
+                </div>
+            `;
+        }
+
+        // Proyectos Destacados (Featured) sin imágenes
+        const featuredGrid = document.getElementById('featured-grid');
+        if (featuredGrid) {
+            featuredGrid.innerHTML = PORTFOLIO_DATA.featuredProjects.map(p => `
+                <div class="featured-card-no-img">
+                    <div class="card-header">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="folder-icon"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"></path></svg>
+                        <a href="${p.githubUrl}" target="_blank" class="github-icon-link" title="Ver en GitHub">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-github"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
                         </a>
                     </div>
+                    <h3>${p.title}</h3>
+                    <div class="featured-tags">
+                        ${p.tags.map(t => `<span class="tag">${t}</span>`).join('')}
+                    </div>
+                    <p>${p.shortDesc}</p>
+                    <div class="featured-actions">
+                        <button class="btn-text open-details" data-id="${p.id}">Saber más →</button>
+                    </div>
                 </div>
             `).join('');
         }
 
-        // Habilidades
-        const skillsContainer = document.getElementById('skills-container');
-        if (skillsContainer) {
-            skillsContainer.innerHTML = PORTFOLIO_DATA.skills.map(cat => `
-                <div class="skill-category">
-                    <h4>${cat.category}</h4>
-                    <ul class="skill-list">
-                        ${cat.items.map(s => `<li><i data-lucide="${s.icon}"></i> ${s.name}</li>`).join('')}
-                    </ul>
+        // Otros Proyectos (Otros) con botón Saber más
+        const othersList = document.getElementById('others-list');
+        if (othersList) {
+            othersList.innerHTML = PORTFOLIO_DATA.otherProjects.map(p => `
+                <div class="other-project-card">
+                    <div>
+                        <div class="other-header">
+                            <h4>${p.title}</h4>
+                            <a href="${p.githubUrl}" target="_blank" class="other-link" title="Ver en GitHub">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-github"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+                            </a>
+                        </div>
+                        <p>${p.desc}</p>
+                    </div>
+                    <div class="other-footer">
+                        <div class="other-tags">
+                            ${p.tags.map(t => `<span class="tag-sm">${t}</span>`).join('')}
+                        </div>
+                        <button class="btn-text-sm open-details" data-id="${p.id}">Saber más →</button>
+                    </div>
                 </div>
             `).join('');
         }
 
-        // Experiencia & Educación
-        const timeline = document.querySelector('.exp-timeline');
-        if (timeline) {
-            timeline.innerHTML = [
-                ...PORTFOLIO_DATA.experience.map(e => `
-                    <div class="timeline-item">
+        // Habilidades Técnicas como Lista Minimalista Estructurada (Sin tarjetas con iconos)
+        const skillsTechList = document.getElementById('skills-tech-list');
+        if (skillsTechList) {
+            skillsTechList.innerHTML = PORTFOLIO_DATA.skills.map(cat => `
+                <div class="skills-row">
+                    <span class="skills-row-category">${cat.category}</span>
+                    <span class="skills-row-items">${cat.items.map(s => s.name).join('  •  ')}</span>
+                </div>
+            `).join('');
+        }
+
+        // Habilidades Blandas
+        const softSkillsList = document.getElementById('soft-skills-list');
+        if (softSkillsList) {
+            softSkillsList.innerHTML = profile.softSkills.map(s => `
+                <li>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    <span>${s}</span>
+                </li>
+            `).join('');
+        }
+
+        // Idiomas
+        const languagesList = document.getElementById('languages-list');
+        if (languagesList) {
+            languagesList.innerHTML = profile.languages.map(l => `
+                <div class="lang-item-minimal">
+                    <span class="lang-name">${l.name}</span>
+                    <span class="lang-level">${l.level}</span>
+                </div>
+            `).join('');
+        }
+
+        // Experiencia laboral (Formato Filas Limpias: fecha izq, detalles der)
+        const expList = document.getElementById('experience-list');
+        if (expList) {
+            expList.innerHTML = PORTFOLIO_DATA.experience.map(e => `
+                <div class="resume-row">
+                    <div class="resume-date">${e.date}</div>
+                    <div class="resume-details">
                         <h4>${e.role}</h4>
-                        <p class="date">${e.date} | ${e.company}</p>
-                        <p>${e.desc}</p>
+                        <div class="resume-company">${e.company}</div>
+                        <p class="resume-desc">${e.desc}</p>
                     </div>
-                `),
-                ...PORTFOLIO_DATA.education.map(e => `
-                    <div class="timeline-item">
-                        <h4>${e.degree}</h4>
-                        <p class="date">${e.date} | ${e.school}</p>
-                        <p>${e.desc}</p>
-                    </div>
-                `)
-            ].join('');
+                </div>
+            `).join('');
         }
 
-        // Eventos botones de modal
+        // Formación Académica (Formato Filas Limpias: fecha izq, detalles der)
+        const eduList = document.getElementById('education-list');
+        if (eduList) {
+            eduList.innerHTML = PORTFOLIO_DATA.education.map(e => `
+                <div class="resume-row">
+                    <div class="resume-date">${e.date}</div>
+                    <div class="resume-details">
+                        <h4>${e.degree}</h4>
+                        <div class="resume-company">${e.school}</div>
+                        <p class="resume-desc">${e.desc}</p>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Eventos botones de modal (aplica a destacados y otros)
         document.querySelectorAll('.open-details').forEach(btn => {
             btn.addEventListener('click', () => openModal(btn.getAttribute('data-id')));
         });
     }
 
     // ============================================================
-    // INICIALIZACIÓN (orden correcto)
+    // INICIALIZACIÓN
     // ============================================================
-    renderPortfolio();       // 1. Genera el HTML de proyectos y skills
-    observeElements();       // 2. Observa/revela los .reveal ya en pantalla
-    if (window.lucide) lucide.createIcons(); // 3. Pinta los iconos
+    renderPortfolio();
 
     // ============================================================
     // SMOOTH SCROLL
@@ -178,7 +192,11 @@ document.addEventListener('DOMContentLoaded', () => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
             const target = document.querySelector(this.getAttribute('href'));
-            if (target) target.scrollIntoView({ behavior: 'smooth' });
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth' });
+                // Cambiar el hash en la URL limpiamente
+                window.history.pushState(null, null, this.getAttribute('href'));
+            }
         });
     });
 });

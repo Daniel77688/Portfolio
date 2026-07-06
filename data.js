@@ -1,81 +1,150 @@
 /**
  * Portfolio Data - Daniel Claver Feito
- * Centralización de contenido para fácil mantenimiento
+ * Contenido centralizado para fácil mantenimiento, optimizado sin clichés de IA.
  */
 
 const PORTFOLIO_DATA = {
     profile: {
         name: "Daniel Claver Feito",
-        title: "Desarrollador Backend & Especialista en Datos",
-        summary: "Ingeniero Informático especializado en optimización de bases de datos, desarrollo con Java y soluciones de inteligencia artificial aplicada.",
-        profilePic: "Diseño sin título.png",
-        cvLink: "CV_PDF.pdf"
+        title: "Desarrollador Backend",
+        email: "daniel77688@gmail.com",
+        github: "https://github.com/daniel77688",
+        linkedin: "https://linkedin.com/in/daniel-claver-feito-b34043264/",
+        cvLink: "CV_PDF.pdf",
+        profilePic: "foto.png",
+        about: "Ingeniero Informático por la Universidad Rey Juan Carlos. Me especializo en el desarrollo backend, bases de datos y la integración de inteligencia artificial. Actualmente me encuentro realizando mi Trabajo de Fin de Grado (TFG) enfocado en este ámbito, en el cual he implementado una IA en una aplicación con una arquitectura RAG (Retrieval-Augmented Generation) orquestada con LangChain y utilizando ChromaDB para la gestión y búsqueda de embeddings vectoriales.",
+        currentlyLearning: "Profundizando en el diseño de microservicios y despliegues eficientes en la nube.",
+        softSkills: [
+            "Resolución de problemas técnicos de forma lógica y estructurada.",
+            "Autodidacta con capacidad para adoptar nuevas tecnologías rápidamente.",
+            "Colaboración en entornos de desarrollo ágiles (SCRUM).",
+            "Atención al detalle en rendimiento de bases de datos y legibilidad del código."
+        ],
+        languages: [
+            { name: "Español", level: "Nativo" },
+            { name: "Inglés", level: "Avanzado" }
+        ]
     },
-    projects: [
+    // Proyectos principales destacados (con descripciones detalladas)
+    featuredProjects: [
         {
-            id: "twitter",
-            title: "Twitter Text Formatter",
-            tags: ["Java", "ANTLR4", "Compiladores"],
-            shortDesc: "Herramienta de procesamiento de texto que utiliza análisis léxico para formatear tweets en HTML estilizado.",
+            id: "urjc-scraper",
+            title: "URJC Scraper — TFG",
+            tags: ["Python", "FastAPI", "LangChain", "ChromaDB", "RAG", "Selenium"],
+            shortDesc: "Aplicación web completa con búsqueda semántica sobre producción científica de la URJC, integrando IA generativa con arquitectura RAG.",
             fullDesc: `
-                <p>Herramienta desarrollada para el curso de Procesadores de Lenguaje. Utiliza ANTLR4 y Java para analizar y formatear texto tipo tweet en una salida HTML visualmente estilizada.</p>
-                <h4>Características principales:</h4>
+                <p>Trabajo de Fin de Grado. Sistema full-stack que extrae, procesa y permite consultar en lenguaje natural la producción científica de la URJC mediante una arquitectura RAG (Retrieval-Augmented Generation).</p>
+                <h4>Aspectos clave del desarrollo:</h4>
                 <ul>
-                    <li>Análisis léxico de hashtags, menciones y URLs.</li>
-                    <li>Estilizado automático mediante CSS personalizado.</li>
-                    <li>Validación del límite clásico de 140 caracteres.</li>
-                    <li>Acciones semánticas embebidas directamente en la gramática.</li>
+                    <li>Scraping automatizado de datos académicos con Selenium y BeautifulSoup4, almacenados y procesados con Pandas.</li>
+                    <li>Indexación vectorial de documentos con ChromaDB y embeddings generados mediante Sentence Transformers.</li>
+                    <li>Motor de búsqueda semántica con filtros avanzados (profesor, tipo, cuartil SJR, rango de fechas) orquestado con LangChain.</li>
+                    <li>API REST construida con FastAPI con autenticación de usuarios (bcrypt, SQLModel), validación de datos y arquitectura modular por capas.</li>
+                    <li>Frontend dinámico con interfaz de chat y filtros integrados que consume la API REST.</li>
                 </ul>
             `,
-            githubUrl: "https://github.com/Daniel77688/Twitter-Text-Formatter"
+            githubUrl: "https://github.com/Daniel77688"
         },
         {
-            id: "robot",
-            title: "Industrial Robot Simulation",
-            tags: ["C++", "OpenGL", "Gráficos 3D"],
-            shortDesc: "Simulación 3D avanzada de una planta industrial robotizada con brazos articulados e iluminación dinámica.",
+            id: "padel",
+            title: "TOUR-PADEL",
+            tags: ["Spring Boot", "Java", "JPA/Hibernate", "API REST", "H2"],
+            shortDesc: "Plataforma completa para la gestión de torneos de pádel, inscripciones y pistas mediante una API REST documentada.",
             fullDesc: `
-                <p>Simulación tridimensional de una planta industrial robotizada. La escena incluye brazos robóticos articulados, cintas transportadoras y sistemas de iluminación dinámicos.</p>
-                <h4>Características principales:</h4>
+                <p>Aplicación web backend-first construida con Spring Boot 3 para administrar ligas y torneos de pádel. Implementa un modelo de datos relacional robusto con JPA y control de negocio estricto.</p>
+                <h4>Aspectos clave del desarrollo:</h4>
                 <ul>
-                    <li>Tres robots articulados con control manual y automático.</li>
-                    <li>Entorno dinámico con cintas de transporte y sistemas de partículas (humo).</li>
-                    <li>Iluminación avanzada con Normal Maps y Specular Maps.</li>
-                    <li>Sistema de cámaras: Libre, Cinemática y Vista de Robot.</li>
+                    <li>Arquitectura limpia en capas bien separadas: Controlador, Servicio y Repositorio.</li>
+                    <li>Persistencia mediante JPA/Hibernate sobre base de datos H2 persistida en modo archivo.</li>
+                    <li>API REST completa consumida de forma dinámica mediante peticiones Fetch asíncronas en el frontend.</li>
+                    <li>Validación de datos entrantes e integración de seguridad básica.</li>
+                </ul>
+            `,
+            githubUrl: "https://github.com/Daniel77688/TOUR-PADEL"
+        },
+        {
+            id: "road-panel-ocr",
+            title: "OCR de Paneles de Carretera",
+            tags: ["Python", "OpenCV", "Machine Learning", "Visión Artificial"],
+            shortDesc: "Pipeline de reconocimiento de caracteres en paneles de autopista comparando clasificadores LDA, PCA, KNN y HOG.",
+            fullDesc: `
+                <p>Desarrollo de un sistema OCR completo desde cero para la extracción y lectura automática de texto en imágenes reales de paneles informativos de autopistas.</p>
+                <h4>Aspectos clave del desarrollo:</h4>
+                <ul>
+                    <li>Segmentación precisa de caracteres mediante umbralización adaptativa gaussiana y análisis geométrico de contornos.</li>
+                    <li>Agrupación de texto en líneas físicas mediante regresión lineal robusta (RANSAC).</li>
+                    <li>Evaluación y comparación empírica de múltiples enfoques de clasificación: LDA + Normal Bayes (OpenCV), PCA + KNN y descriptores HOG + Normal Bayes.</li>
+                    <li>Técnicas avanzadas de supresión de solapamientos para evitar lecturas duplicadas en letras huecas.</li>
+                </ul>
+            `,
+            githubUrl: "https://github.com/Daniel77688/Practica2VA"
+        }
+    ],
+    // Otros proyectos listados con soporte de ID y fullDesc para poder abrir el modal "Saber más"
+    otherProjects: [
+        {
+            id: "robot",
+            title: "Simulación de Robot Industrial 3D",
+            tags: ["C++", "OpenGL", "Gráficos 3D"],
+            desc: "Entorno interactivo en 3D que simula una planta robotizada con iluminación avanzada, partículas y sistema multicámara.",
+            fullDesc: `
+                <p>Simulación tridimensional de una célula robótica industrial utilizando OpenGL nativo y C++, enfocada en interactividad en tiempo real y gráficos realistas.</p>
+                <h4>Aspectos clave del desarrollo:</h4>
+                <ul>
+                    <li>Modelado cinemático e interactivo de tres brazos robóticos articulados con modo manual y automático.</li>
+                    <li>Renderizado avanzado con iluminación local, Normal Maps y Specular Maps.</li>
+                    <li>Simulación física de partículas para efectos ambientales (humo/vapor).</li>
+                    <li>Sistema multicámara en tiempo real: cámara libre, cinemática de seguimiento y vista subjetiva del efector.</li>
                 </ul>
             `,
             githubUrl: "https://github.com/Daniel77688/Planta-Industrial-Robotizada---Simulaci-n-3D-con-OpenGL"
         },
         {
-            id: "token",
-            title: "CGM Token Reward System",
-            tags: ["Solidity", "ERC-20", "Web3"],
-            shortDesc: "Ecosistema de contratos inteligentes para gestión de recompensas y moderación mediante un token ERC-20.",
+            id: "road-panel-detection",
+
+            title: "Detección de Paneles",
+            tags: ["Python", "OpenCV", "Visión Artificial"],
+            desc: "Detección automática de paneles viales en imágenes de carretera comparando MSER y la Transformada de Hough.",
             fullDesc: `
-                <p>Ecosistema de smart contracts desarrollado en Solidity que incluye un token ERC-20 (CGM) y lógica de negocio para gestión de recompensas.</p>
-                <h4>Características principales:</h4>
+                <p>Práctica de Visión Artificial que compara dos métodos clásicos para la segmentación y detección de señales de tráfico cuadradas o rectangulares en condiciones de iluminación reales.</p>
+                <h4>Aspectos clave del desarrollo:</h4>
                 <ul>
-                    <li>Token estándar ERC-20 con funciones de mint y burn.</li>
-                    <li>Sistema de recompensas moderado con límites configurables.</li>
-                    <li>Control de acceso mediante listas negras gestionadas por administradores.</li>
-                    <li>Roles diferenciados: Owner y Moderadores.</li>
+                    <li>Segmentación de color en el espacio HSV para filtrar el color azul característico de los paneles.</li>
+                    <li>Uso del algoritmo MSER (Maximally Stable Extremal Regions) para agrupar regiones de píxeles estables ante umbrales variables.</li>
+                    <li>Implementación de la Transformada de Hough para la detección de rectas y verificación de la geometría rectangular del panel.</li>
+                    <li>Cálculo de métricas de rendimiento (Precisión, Recall e IoU) sobre un conjunto de datos anotado.</li>
                 </ul>
             `,
-            githubUrl: "https://github.com/Daniel77688/CGM-Token-Reward-System"
+            githubUrl: "https://github.com/Daniel77688/VAPractica"
+        },
+        {
+            id: "twitter",
+            title: "Twitter Text Formatter",
+            tags: ["Java", "ANTLR4", "Compiladores"],
+            desc: "Procesador sintáctico que analiza tweets en tiempo real para extraer hashtags, menciones y URLs, transformándolos en HTML.",
+            fullDesc: `
+                <p>Analizador de texto desarrollado en Java utilizando la herramienta generadora de analizadores ANTLR4 para procesar sintaxis similar a la de un tweet.</p>
+                <h4>Aspectos clave del desarrollo:</h4>
+                <ul>
+                    <li>Definición de reglas léxicas y sintácticas para hashtags (#), menciones (@) y direcciones web (http/https).</li>
+                    <li>Inyección de acciones semánticas y traducción a formato HTML estilizado mediante clases de escucha (Listeners) de ANTLR.</li>
+                    <li>Manejo y validación del límite de caracteres en el backend.</li>
+                </ul>
+            `,
+            githubUrl: "https://github.com/Daniel77688/Twitter-Text-Formatter"
         },
         {
             id: "pascal",
             title: "Pascal to C Translator",
-            tags: ["Java", "ANTLR4", "Lógica"],
-            shortDesc: "Compilador que traduce código fuente Pascal a código C ejecutable, manejando estructuras de control.",
+            tags: ["Java", "ANTLR4", "Compiladores"],
+            desc: "Traductor de código fuente que convierte programas estructurados en Pascal a código C ejecutable mediante análisis de AST.",
             fullDesc: `
-                <p>Componente de compilador que traduce código fuente Pascal a código C ejecutable, incluyendo procedimientos, funciones y estructuras de control.</p>
-                <h4>Características principales:</h4>
+                <p>Traductor de lenguajes escrito en Java y ANTLR4 para transpilar programas de una sintaxis Pascal a código fuente C equivalente y compilable.</p>
+                <h4>Aspectos clave del desarrollo:</h4>
                 <ul>
-                    <li>Traducción basada en AST (Árbol de Sintaxis Abstracta).</li>
-                    <li>Mapeo de tipos de datos, bucles (while, repeat, for) y condicionales.</li>
-                    <li>Generación automática de format strings para printf.</li>
-                    <li>Gestión de errores mediante un Listener recursivo personalizado.</li>
+                    <li>Generación de un Árbol de Sintaxis Abstracta (AST) para representar las estructuras de control, bucles (for, while, repeat) y condicionales de Pascal.</li>
+                    <li>Mapeo de tipos primitivos de datos y traducción de procedimientos y funciones locales.</li>
+                    <li>Traducción semántica del formato de impresión y flujos de entrada/salida a funciones estándar de C (printf/scanf).</li>
                 </ul>
             `,
             githubUrl: "https://github.com/Daniel77688/Pascal-to-C-Translator"
@@ -83,16 +152,16 @@ const PORTFOLIO_DATA = {
         {
             id: "vaccine",
             title: "Vaccination Simulator",
-            tags: ["C", "Pthreads", "Sistemas Operativos"],
-            shortDesc: "Simulación concurrente multihilo de un proceso de vacunación masiva utilizando mutexes y variables de condición.",
+            tags: ["C", "Pthreads", "Concurrencia"],
+            desc: "Simulación concurrente multihilo de un centro de vacunación masiva usando mutexes, variables de condición y barreras.",
             fullDesc: `
-                <p>Simulación concurrente multihilo de un proceso de vacunación durante una pandemia, desarrollada en C para el curso de Sistemas Operativos.</p>
-                <h4>Características principales:</h4>
+                <p>Simulador concurrente escrito en C para sistemas tipo Unix que simula la cadena de distribución y aplicación de vacunas bajo condiciones de concurrencia intensa.</p>
+                <h4>Aspectos clave del desarrollo:</h4>
                 <ul>
-                    <li>Uso intensivo de mutexes y variables de condición de pthreads.</li>
-                    <li>Sincronización entre fábricas, centros de vacunación y habitantes.</li>
-                    <li>Gestión de almacén global y redistribución eficiente de dosis.</li>
-                    <li>Reportes estadísticos detallados al finalizar la simulación.</li>
+                    <li>Modelado de actores (fábricas, repartidores, centros y ciudadanos) como hilos independientes mediante la librería pthread.</li>
+                    <li>Sincronización robusta para evitar condiciones de carrera empleando mutexes y variables de condición.</li>
+                    <li>Implementación de un almacén compartido seguro contra hilos (thread-safe).</li>
+                    <li>Generación de métricas de tiempo de espera y efectividad de distribución al término de la ejecución.</li>
                 </ul>
             `,
             githubUrl: "https://github.com/Daniel77688/Vaccination-Simulator---Operating-Systems"
@@ -100,108 +169,72 @@ const PORTFOLIO_DATA = {
         {
             id: "shell",
             title: "miniShell",
-            tags: ["C", "System Calls", "POSIX"],
-            shortDesc: "Intérprete de comandos (Bash-like) implementado en C para demostrar conceptos de gestión de procesos.",
+            tags: ["C", "POSIX API", "System Calls"],
+            desc: "Intérprete de comandos Bash-like que implementa redirecciones (I/O), ejecución en segundo plano y tuberías (pipes).",
             fullDesc: `
-                <p>Intérprete de comandos (Bash-like) implementado en C para demostrar conceptos clave de gestión de procesos y llamadas al sistema Unix.</p>
-                <h4>Características principales:</h4>
+                <p>Intérprete de comandos personalizado (mini-shell) en C que interactúa directamente con la API POSIX y llamadas al sistema Unix.</p>
+                <h4>Aspectos clave del desarrollo:</h4>
                 <ul>
-                    <li>Parsers de comandos personalizados (libparser).</li>
-                    <li>Redirección de E/S (<, >, 2>) y ejecución en segundo plano (&).</li>
-                    <li>Encadenamiento de comandos mediante pipes (|).</li>
-                    <li>Soporte para comandos internos y manejo de señales.</li>
+                    <li>Llamadas al sistema fork() y exec() para la creación y reemplazo de procesos de comandos.</li>
+                    <li>Redirecciones de entrada y salida estándar mediante dup2() y manejo de archivos descriptores.</li>
+                    <li>Encadenamiento de múltiples comandos concurrentes usando llamadas a pipe().</li>
+                    <li>Control de ejecución en segundo plano (&) y gestión de señales (como SIGINT) para procesos hijo.</li>
                 </ul>
             `,
             githubUrl: "https://github.com/Daniel77688/miniShell"
         },
         {
-            id: "padel",
-            title: "TOUR-PADEL",
-            tags: ["Spring Boot", "Java", "Fullstack"],
-            shortDesc: "Plataforma web completa para gestión de torneos de pádel con arquitectura en capas y API REST.",
+            id: "token",
+            title: "CGM Token Reward System",
+            tags: ["Solidity", "ERC-20", "Smart Contracts"],
+            desc: "Contratos inteligentes para la emisión y quemado de un token de recompensas moderado con control de accesos y roles.",
             fullDesc: `
-                <p>Plataforma web completa para la gestión de torneos de pádel, permitiendo inscripciones, gestión de pistas y consulta de resultados.</p>
-                <h4>Características principales:</h4>
+                <p>Ecosistema de Smart Contracts desarrollado en Solidity utilizando la biblioteca OpenZeppelin para la gestión de un token de utilidad estándar ERC-20.</p>
+                <h4>Aspectos clave del desarrollo:</h4>
                 <ul>
-                    <li>Backend con Spring Boot 3 y persistencia con JPA/Hibernate.</li>
-                    <li>Arquitectura en capas (Controlador -> Servicio -> Repositorio).</li>
-                    <li>Base de datos H2 persistente en modo archivo.</li>
-                    <li>Frontend dinámico consumiendo API REST mediante Fetch.</li>
-                    <li>Seguridad básica integrada y validación de datos.</li>
+                    <li>Implementación del token ERC-20 con soporte para acuñación (mint) y quema (burn).</li>
+                    <li>Control de acceso basado en roles (Owner y Moderadores) para regular el reparto de recompensas.</li>
+                    <li>Gestión de listas de moderación y restricciones de transferencias mediante listas negras administrativas.</li>
+                    <li>Pruebas unitarias básicas de seguridad en contratos y límites de retiro.</li>
                 </ul>
             `,
-            githubUrl: "https://github.com/Daniel77688/TOUR-PADEL"
-        },
-        {
-            id: "road-panel-detection",
-            title: "Detección de Paneles de Carretera",
-            tags: ["Python", "OpenCV", "Visión Artificial"],
-            shortDesc: "Sistema de detección automática de paneles informativos en imágenes de carretera usando MSER y Transformada de Hough.",
-            fullDesc: `
-                <p>Práctica de Visión Artificial para detectar paneles informativos en imágenes de carreteras reales. Se implementaron dos estrategias de detección complementarias evaluadas con métricas estándar de detección de objetos.</p>
-                <h4>Características principales:</h4>
-                <ul>
-                    <li>Detector MSER (<em>Maximally Stable Extremal Regions</em>) para segmentación de regiones candidatas a panel.</li>
-                    <li>Detector alternativo basado en Transformada de Hough para detección de formas rectangulares.</li>
-                    <li>Pipeline de preprocesamiento: conversión a espacio HSV, filtrado morfológico y supresión de no máximos.</li>
-                    <li>Evaluación automática con métricas de Precisión, Recall e IoU sobre conjunto de test etiquetado.</li>
-                    <li>Arquitectura modular con interfaz común para facilitar el intercambio de detectores.</li>
-                </ul>
-            `,
-            githubUrl: "https://github.com/Daniel77688/VAPractica"
-        },
-        {
-            id: "road-panel-ocr",
-            title: "OCR de Paneles de Carretera",
-            tags: ["Python", "OpenCV", "Machine Learning", "Visión Artificial"],
-            shortDesc: "Sistema OCR completo que lee el texto de paneles de carretera mediante clasificadores LDA+Bayes, PCA+KNN y HOG+Bayes.",
-            fullDesc: `
-                <p>Práctica de Visión Artificial (4º GII) que implementa un pipeline completo de OCR para leer los caracteres de paneles informativos de autopista recortados. Combina técnicas de visión por computador con clasificadores clásicos de machine learning.</p>
-                <h4>Características principales:</h4>
-                <ul>
-                    <li>Segmentación de caracteres mediante umbralización adaptativa gaussiana y análisis de contornos con filtrado geométrico.</li>
-                    <li>Agrupación de caracteres en líneas de texto usando regresión robusta RANSAC.</li>
-                    <li>Tres clasificadores implementados y comparados: LDA + Normal Bayes (OpenCV), PCA + KNN y HOG + Normal Bayes.</li>
-                    <li>Reducción de dimensionalidad: LDA supervisado (max separabilidad entre clases) y PCA no supervisado (max varianza).</li>
-                    <li>Supresión de rectángulos solapados para eliminar artefactos en letras huecas (O, D, B, A...).</li>
-                </ul>
-            `,
-            githubUrl: "https://github.com/Daniel77688/Practica2VA"
+            githubUrl: "https://github.com/Daniel77688/CGM-Token-Reward-System"
         }
     ],
     skills: [
         {
-            category: "Lenguajes",
+            category: "Backend & Datos",
             items: [
                 { name: "Java", icon: "code-2" },
-                { name: "SQL (MySQL, MongoDB)", icon: "database" },
-                { name: "Python & C/C++", icon: "file-code" },
-                { name: "Solidity (Web3)", icon: "shield-check" }
-            ]
-        },
-        {
-            category: "Frameworks & Backend",
-            items: [
                 { name: "Spring Boot", icon: "server" },
-                { name: "LangChain (IA/RAG)", icon: "brain-circuit" },
+                { name: "SQL (MySQL, MongoDB)", icon: "database" },
                 { name: "JUnit & Mockito", icon: "check-circle-2" }
             ]
         },
         {
-            category: "Infraestructura & Otros",
+            category: "Sistemas & Lenguajes",
             items: [
-                { name: "Docker & Azure", icon: "container" },
-                { name: "Git & SCRUM", icon: "git-branch" },
-                { name: "Architectura en Capas", icon: "layers" }
+                { name: "Python", icon: "file-code" },
+                { name: "C & C++", icon: "terminal" },
+                { name: "Solidity (Web3)", icon: "shield-check" }
             ]
         },
         {
             category: "Visión Artificial & IA",
             items: [
                 { name: "OpenCV", icon: "eye" },
-                { name: "scikit-learn", icon: "cpu" },
-                { name: "LDA / PCA / HOG", icon: "bar-chart-2" },
-                { name: "MSER & Hough Transform", icon: "scan" }
+                { name: "scikit-learn (ML)", icon: "cpu" },
+                { name: "LangChain (IA/RAG)", icon: "brain-circuit" },
+                { name: "Extracción HOG / PCA / LDA", icon: "bar-chart-2" }
+            ]
+        },
+        {
+            category: "Metodologías & DevOps",
+            items: [
+                { name: "Docker", icon: "container" },
+                { name: "Git & GitHub", icon: "git-branch" },
+                { name: "Metodología SCRUM", icon: "users" },
+                { name: "Arquitectura en Capas", icon: "layers" }
             ]
         }
     ],
@@ -210,7 +243,7 @@ const PORTFOLIO_DATA = {
             role: "Desarrollador Backend en Prácticas",
             company: "Mundomar Cruceros",
             date: "Sep 2025 – Abril 2026",
-            desc: "Optimización de consultas SQL en sistemas de alta carga (reducción de 45s a < 3s). Automatización de procesos con Java/Spring Boot."
+            desc: "De prácticas en modelado de datos a desarrollo backend. En Data & Analytics, gestioné bases de datos MySQL y KPIs corporativos con MyDBR. En Ingeniería de Software, refactoricé en Java los filtros del buscador principal (capas DTO, agrupamientos y virtualización), optimicé consultas SQL dinámicas aislando subconsultas y participé en ciclos de QA y resolución de bugs en producción."
         }
     ],
     education: [
@@ -218,7 +251,7 @@ const PORTFOLIO_DATA = {
             degree: "Grado en Ingeniería Informática",
             school: "Universidad Rey Juan Carlos",
             date: "2022 – 2026",
-            desc: "Enfoque en desarrollo de software e Inteligencia Artificial. 4º curso en proceso (A falta de TFG y una asignatura ambas en proceso actualmente)."
+            desc: "Especialización en desarrollo de software y computación. Actualmente cursando el último año (pendiente únicamente de la entrega de TFG y una asignatura teórica)."
         }
     ]
 };
