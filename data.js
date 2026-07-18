@@ -43,7 +43,7 @@ const PORTFOLIO_DATA = {
                     <li>Frontend dinámico con interfaz de chat y filtros integrados que consume la API REST.</li>
                 </ul>
             `,
-            githubUrl: "https://github.com/Daniel77688"
+            githubUrl: "https://github.com/Daniel77688/URJC-Scraper"
         },
         {
             id: "padel",
@@ -80,7 +80,6 @@ const PORTFOLIO_DATA = {
             githubUrl: "https://github.com/Daniel77688/Practica2VA"
         }
     ],
-    // Otros proyectos listados con soporte de ID y fullDesc para poder abrir el modal "Saber más"
     otherProjects: [
         {
             id: "robot",
