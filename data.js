@@ -241,7 +241,7 @@ const PORTFOLIO_DATA = {
         {
             role: "Desarrollador Backend en Prácticas",
             company: "Mundomar Cruceros",
-            date: "Sep 2025 – Abril 2026",
+            date: "Jun 2025 – may 2026",
             desc: "De prácticas en modelado de datos a desarrollo backend. En Data & Analytics, gestioné bases de datos MySQL y KPIs corporativos con MyDBR. En Ingeniería de Software, refactoricé en Java los filtros del buscador principal (capas DTO, agrupamientos y virtualización), optimicé consultas SQL dinámicas aislando subconsultas y participé en ciclos de QA y resolución de bugs en producción."
         }
     ],
