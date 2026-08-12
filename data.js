@@ -6,14 +6,14 @@
 const PORTFOLIO_DATA = {
     profile: {
         name: "Daniel Claver Feito",
-        title: "Desarrollador Backend",
+        title: "Desarrollador Backend & Full-Stack",
         email: "daniel77688@gmail.com",
         github: "https://github.com/daniel77688",
         linkedin: "https://linkedin.com/in/daniel-claver-feito-b34043264/",
         cvLink: "CV_PDF.pdf",
         profilePic: "foto.png",
-        about: "Ingeniero Informático por la Universidad Rey Juan Carlos. Me especializo en el desarrollo backend, bases de datos y la integración de inteligencia artificial. Actualmente me encuentro realizando mi Trabajo de Fin de Grado (TFG) enfocado en este ámbito, en el cual he implementado una IA en una aplicación con una arquitectura RAG (Retrieval-Augmented Generation) orquestada con LangChain y utilizando ChromaDB para la gestión y búsqueda de embeddings vectoriales.",
-        currentlyLearning: "Profundizando en el diseño de microservicios y despliegues eficientes en la nube.",
+        about: "Ingeniero Informático graduado por la Universidad Rey Juan Carlos. Especializado en desarrollo backend, diseño de APIs REST y arquitectura de software, con experiencia práctica en integración de IA (arquitectura RAG con LangChain y ChromaDB) y desarrollo full-stack con Angular.",
+        currentlyLearning: "Profundizando en arquitecturas orientadas a eventos y despliegue de aplicaciones en la nube.",
         softSkills: [
             "Resolución de problemas técnicos de forma lógica y estructurada.",
             "Autodidacta con capacidad para adoptar nuevas tecnologías rápidamente.",
@@ -46,6 +46,24 @@ const PORTFOLIO_DATA = {
             githubUrl: "https://github.com/Daniel77688/URJC-Scraper"
         },
         {
+            id: "habit-tracker",
+            title: "HabitTracker",
+            tags: ["Angular", "FastAPI", "Python", "TypeScript", "SCSS", "SQLAlchemy"],
+            shortDesc: "Aplicación web full-stack para el seguimiento de rutinas diarias con sistema de rachas, estadísticas y visualización en calendario estilo heatmap.",
+            fullDesc: `
+                <p>Plataforma web completa desarrollada desde cero para el diseño, seguimiento y análisis de hábitos personales con frecuencias flexibles (diarias, semanales, mensuales o días personalizados).</p>
+                <h4>Aspectos clave del desarrollo:</h4>
+                <ul>
+                    <li>Frontend desarrollado con Angular 17 utilizando componentes standalone, tipado estricto con TypeScript, servicios reactivos (RxJS) y estilos modulares en SCSS con sistema de temas claro/oscuro.</li>
+                    <li>Backend construido en Python con FastAPI y SQLAlchemy ORM sobre SQLite, estructurado en arquitectura limpia por capas (Controladores, Servicios, Modelos y Schemas con Pydantic v2).</li>
+                    <li>Sistema de autenticación y gestión de usuarios con hashing de contraseñas mediante bcrypt.</li>
+                    <li>Módulo visual de calendario con vistas semanal, mensual y mapa de calor anual (heatmap tipo GitHub) para analizar la constancia y cumplimiento.</li>
+                    <li>Suite de pruebas automatizadas en backend desarrollada con pytest y cliente HTTP asíncrono httpx.</li>
+                </ul>
+            `,
+            githubUrl: "https://github.com/Daniel77688/HabitTracker"
+        },
+        {
             id: "padel",
             title: "TOUR-PADEL",
             tags: ["Spring Boot", "Java", "JPA/Hibernate", "API REST", "H2"],
@@ -61,12 +79,14 @@ const PORTFOLIO_DATA = {
                 </ul>
             `,
             githubUrl: "https://github.com/Daniel77688/TOUR-PADEL"
-        },
+        }
+    ],
+    otherProjects: [
         {
             id: "road-panel-ocr",
             title: "OCR de Paneles de Carretera",
             tags: ["Python", "OpenCV", "Machine Learning", "Visión Artificial"],
-            shortDesc: "Pipeline de reconocimiento de caracteres en paneles de autopista comparando clasificadores LDA, PCA, KNN y HOG.",
+            desc: "Pipeline de reconocimiento de caracteres en paneles de autopista comparando clasificadores LDA, PCA, KNN y HOG.",
             fullDesc: `
                 <p>Desarrollo de un sistema OCR completo desde cero para la extracción y lectura automática de texto en imágenes reales de paneles informativos de autopistas.</p>
                 <h4>Aspectos clave del desarrollo:</h4>
@@ -78,9 +98,7 @@ const PORTFOLIO_DATA = {
                 </ul>
             `,
             githubUrl: "https://github.com/Daniel77688/Practica2VA"
-        }
-    ],
-    otherProjects: [
+        },
         {
             id: "robot",
             title: "Simulación de Robot Industrial 3D",
@@ -206,25 +224,25 @@ const PORTFOLIO_DATA = {
             items: [
                 { name: "Java", icon: "code-2" },
                 { name: "Spring Boot", icon: "server" },
+                { name: "FastAPI / Python", icon: "terminal" },
                 { name: "SQL (MySQL, MongoDB)", icon: "database" },
                 { name: "JUnit & Mockito", icon: "check-circle-2" }
             ]
         },
         {
-            category: "Sistemas & Lenguajes",
+            category: "Frontend & Web",
             items: [
-                { name: "Python", icon: "file-code" },
-                { name: "C & C++", icon: "terminal" },
-                { name: "Solidity (Web3)", icon: "shield-check" }
+                { name: "Angular (TypeScript)", icon: "code-2" },
+                { name: "HTML5 / CSS3 / SCSS", icon: "file-code" },
+                { name: "RxJS / REST APIs", icon: "layers" }
             ]
         },
         {
-            category: "Visión Artificial & IA",
+            category: "Sistemas & IA",
             items: [
-                { name: "OpenCV", icon: "eye" },
-                { name: "scikit-learn (ML)", icon: "cpu" },
-                { name: "LangChain (IA/RAG)", icon: "brain-circuit" },
-                { name: "Extracción HOG / PCA / LDA", icon: "bar-chart-2" }
+                { name: "Python / C / C++", icon: "terminal" },
+                { name: "LangChain & ChromaDB (RAG)", icon: "brain-circuit" },
+                { name: "OpenCV & Machine Learning", icon: "eye" }
             ]
         },
         {
@@ -250,7 +268,7 @@ const PORTFOLIO_DATA = {
             degree: "Grado en Ingeniería Informática",
             school: "Universidad Rey Juan Carlos",
             date: "2022 – 2026",
-            desc: "Especialización en desarrollo de software y computación. Actualmente cursando el último año (pendiente únicamente de la entrega de TFG y una asignatura teórica)."
+            desc: "Graduado en Ingeniería Informática con especialización en desarrollo de software y computación. TFG desarrollado en la integración de Inteligencia Artificial (RAG) sobre producción científica."
         }
     ]
 };
