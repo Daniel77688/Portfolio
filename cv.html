@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Daniel Claver | Desarrollador Backend</title>
-    <meta name="description" content="Portfolio profesional de Daniel Claver Feito, desarrollador backend especializado en Java, bases de datos y visión artificial.">
+    <meta name="description" content="Portfolio profesional de Daniel Claver Feito, desarrollador backend especializado en Java, bases de datos e inteligencia artificial.">
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,15 +18,21 @@
         <div class="container nav-content">
             <div class="brand" id="nav-brand">DANIEL CLAVER</div>
             <div class="nav-links">
-                <a href="#hero">Sobre mí</a>
-                <a href="#projects">Proyectos</a>
-                <a href="#skills">Habilidades</a>
-                <a href="#experience">Experiencia</a>
+                <a href="#hero"       id="nav-about">Sobre mí</a>
+                <a href="#projects"   id="nav-projects">Proyectos</a>
+                <a href="#skills"     id="nav-skills">Habilidades</a>
+                <a href="#experience" id="nav-experience">Experiencia</a>
+            </div>
+            <!-- Language toggle -->
+            <div class="lang-toggle" id="lang-toggle" title="Switch language">
+                <button class="lang-btn lang-btn--active" id="btn-es" data-lang="es">ES</button>
+                <span class="lang-divider">|</span>
+                <button class="lang-btn" id="btn-en" data-lang="en">EN</button>
             </div>
         </div>
     </nav>
 
-    <!-- Hero / Sobre Mí Section (Combinados, Foto a la Izquierda) -->
+    <!-- Hero / Sobre Mí Section -->
     <section class="hero fade-in" id="hero">
         <div class="container hero-grid">
             <div class="hero-visual">
@@ -36,16 +42,16 @@
             </div>
             <div class="hero-content">
                 <h1 class="hero-title">Daniel Claver Feito</h1>
-                <h2 class="hero-subtitle">Desarrollador Backend</h2>
+                <h2 class="hero-subtitle" id="hero-subtitle">Desarrollador Backend</h2>
                 <div id="about-content">
                     <!-- Se inyecta biografía y caja actualmente aprendiendo desde script.js -->
                 </div>
                 <div class="hero-btns">
-                    <a href="CV_PDF.pdf" download="CV_Daniel_Claver_Feito.pdf" class="btn btn-primary" id="download-cv-btn">
-                        Descargar CV 
+                    <a href="CV_PDF_Spanish.pdf" download="CV_Daniel_Claver_Feito_ES.pdf" class="btn btn-primary" id="download-cv-btn">
+                        <span id="download-cv-label">Descargar CV</span>
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-download"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
                     </a>
-                    <a href="#projects" class="btn btn-secondary">Ver proyectos</a>
+                    <a href="#projects" class="btn btn-secondary" id="view-projects-btn">Ver proyectos</a>
                 </div>
             </div>
         </div>
@@ -55,14 +61,14 @@
     <section id="projects" class="bg-alt">
         <div class="container">
             <div class="section-header">
-                <h2>Proyectos Destacados</h2>
+                <h2 id="section-projects">Proyectos Destacados</h2>
             </div>
-            <!-- Contenedor dinámico de proyectos destacados (sin imágenes) -->
+            <!-- Contenedor dinámico de proyectos destacados -->
             <div class="featured-grid" id="featured-grid"></div>
 
             <!-- Subsección Otros Proyectos -->
             <div class="others-section">
-                <h3>Otros Proyectos</h3>
+                <h3 id="section-others">Otros Proyectos</h3>
                 <div class="others-list" id="others-list"></div>
             </div>
         </div>
@@ -72,7 +78,7 @@
     <section id="skills">
         <div class="container">
             <div class="section-header">
-                <h2>Habilidades</h2>
+                <h2 id="section-skills">Habilidades</h2>
             </div>
             
             <!-- Habilidades Técnicas (Lista minimalista) -->
@@ -82,16 +88,16 @@
                 </div>
             </div>
 
-            <!-- Habilidades Blandas e Idiomas (Al final de la sección) -->
+            <!-- Habilidades Blandas e Idiomas -->
             <div class="skills-extra-grid">
                 <div class="skills-extra-column">
-                    <h3>Aptitudes</h3>
+                    <h3 id="section-aptitudes">Aptitudes</h3>
                     <ul class="soft-skills-list-minimal" id="soft-skills-list">
                         <!-- Se inyecta dinámicamente -->
                     </ul>
                 </div>
                 <div class="skills-extra-column">
-                    <h3>Idiomas</h3>
+                    <h3 id="section-languages">Idiomas</h3>
                     <div class="languages-list-minimal" id="languages-list">
                         <!-- Se inyecta dinámicamente -->
                     </div>
@@ -104,19 +110,18 @@
     <section id="experience" class="bg-alt">
         <div class="container">
             <div class="section-header">
-                <h2>Experiencia & Formación</h2>
+                <h2 id="section-exp-edu">Experiencia & Formación</h2>
             </div>
             
-            <!-- Estructura de filas limpias minimalistas (fecha a la izquierda, detalles a la derecha) -->
             <div class="resume-grid">
                 <div class="resume-column">
-                    <h3>Experiencia Laboral</h3>
+                    <h3 id="section-exp">Experiencia Laboral</h3>
                     <div class="resume-list" id="experience-list">
                         <!-- Se inyecta dinámicamente -->
                     </div>
                 </div>
                 <div class="resume-column">
-                    <h3>Formación Académica</h3>
+                    <h3 id="section-edu">Formación Académica</h3>
                     <div class="resume-list" id="education-list">
                         <!-- Se inyecta dinámicamente -->
                     </div>
@@ -139,7 +144,7 @@
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mail"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
                 </a>
             </div>
-            <p>© 2026 Daniel Claver Feito. Todos los derechos reservados.</p>
+            <p id="footer-text">© 2026 Daniel Claver Feito. Todos los derechos reservados.</p>
         </div>
     </footer>
 

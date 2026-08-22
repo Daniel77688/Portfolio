@@ -913,3 +913,92 @@ footer p {
         gap: 0.25rem;
     }
 }
+
+/* =========================================
+   LANGUAGE TOGGLE
+   ========================================= */
+.lang-toggle {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    background: var(--container-sub);
+    border: 1px solid var(--border-color);
+    border-radius: 999px;
+    padding: 0.25rem 0.65rem;
+}
+
+.lang-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: var(--text-muted);
+    padding: 0.1rem 0.25rem;
+    border-radius: 4px;
+    transition: var(--transition);
+}
+
+.lang-btn:hover {
+    color: var(--accent-primary);
+}
+
+.lang-btn--active {
+    color: var(--accent-primary);
+    background: rgba(122, 82, 58, 0.1);
+}
+
+.lang-divider {
+    font-size: 0.75rem;
+    color: var(--border-color);
+    user-select: none;
+}
+
+/* =========================================
+   COLLABORATOR BADGE (tarjeta + modal)
+   ========================================= */
+.card-collab-badge {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    font-style: italic;
+    margin-bottom: 0.6rem;
+    margin-top: -0.25rem;
+}
+
+.card-collab-badge svg {
+    flex-shrink: 0;
+    color: var(--accent-primary);
+    opacity: 0.7;
+}
+
+.modal-collaborator {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+    padding: 0.5rem 0.75rem;
+    background: var(--container-sub);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+}
+
+.modal-collaborator svg {
+    flex-shrink: 0;
+    color: var(--accent-primary);
+}
+
+@media (max-width: 400px) {
+    .lang-toggle {
+        padding: 0.2rem 0.5rem;
+    }
+    .lang-btn {
+        font-size: 0.72rem;
+    }
+}
